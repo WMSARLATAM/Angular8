@@ -1,0 +1,38 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="">Vista 1</a></li>
+    <li role="presentation" class="active"><a href="comp2">Vista 2</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Buscador</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" name="filterPost" class="form-control" placeholder="Buscar..." [(ngModel)]="filterPost">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of posts | filter:filterPost">
+                        <td>{{post.id}}</td>
+                        <td>{{post.title}}</td>
+                        <td>{{post.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
