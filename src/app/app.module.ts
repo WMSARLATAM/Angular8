@@ -8,21 +8,26 @@ import { Comp2 } from './component2/com2.component';
 import { Personas } from './component1/com1.component';
 import { APP_ROUTING } from './appRoutes';
 
-import { FormsModule } from '@angular/forms';
-import { FilterPipe } from './component2/filter.pipe'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './component2/filter.pipe';
+import { TemplateformsComponent } from './templateForms/templateforms/templateforms.component';
+import { ReactiveformsComponent } from './reactiveForms/reactiveforms/reactiveforms.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     Personas,
     Comp2,
-    FilterPipe
+    FilterPipe,
+    TemplateformsComponent,
+    ReactiveformsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     APP_ROUTING,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

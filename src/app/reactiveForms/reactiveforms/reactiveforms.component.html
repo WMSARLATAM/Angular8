@@ -1,0 +1,47 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="">Vista 1</a></li>
+    <li role="presentation"><a href="comp2">Vista 2</a></li>
+    <li role="presentation"><a href="template">Plantilla de formulario</a></li>
+    <li role="presentation" class="active"><a href="reactive">Formulario reactivo</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Formulario Reactivo</h1>
+</div>
+<div class="container row">
+    <div class="col-xs-6">
+        <form id="contactForm" [formGroup]="form" (ngSubmit)="agregarUsuario()"> 
+            <div class="form-group">
+                <label for="">Nombres</label>
+                <input type="text" formControlName="nombres" class="form-control">
+                <small class="form-text text-danger" *ngIf="form.get('nombres').hasError('required')">*Campo requerido</small>
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" formControlName="email" class="form-control">
+                <!-- <small class="form-text text-danger" *ngIf="form.get('email').hasError('required')">*Campo requerido</small> -->
+                <small class="form-text text-danger" *ngIf="form.get('email').hasError('email')">*Formato de correo incorrecto</small>
+            </div>
+            <div class="form-group">
+                <label for="">Edad</label>
+                <input type="text" formControlName="edad" class="form-control"/>
+                <small class="form-text text-danger" *ngIf="form.get('edad').hasError('required')">*Campo requerido</small>
+                <small class="form-text text-danger" *ngIf="form.get('nombres').hasError('maxlength')">*Campo requerido</small>
+            </div>
+            <div class="form-group">
+                <label for="">Mensaje</label>
+                <textarea formControlName="mensaje" cols="40" rows="4" class="form-control"></textarea>
+                <small class="form-text text-danger" *ngIf="form.get('mensaje').hasError('required')">*Campo requerido</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <div class="col-xs-6">
+        <!-- <div *ngFor="let usuario of usuarios">
+            <div class="panel panel-success">
+                <div class="panel-heading">{{usuario.nombreCompleto()}}</div>
+                <div class="panel-body">{{usuario.mostrarInfo()}}</div>
+              </div>
+        </div> -->
+    </div>
+</div>
